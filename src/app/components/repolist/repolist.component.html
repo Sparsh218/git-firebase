@@ -1,1 +1,7 @@
-<p>repolist works!</p>
+<div *ngFor="let repo of repos" class="list-group">
+    <a [href]="repo.html_url" 
+    target="blank"
+    class="list-group-item list-group-item-action">
+    {{repo.name}}
+</a>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor (
+    private auth: AuthService
+  ) {
+
+    this.auth.getUser().subscribe(
+      (user) => {
+        console.log("logged in user");
+      },
+      (error) => {
+        console.log(" logged in fail");
+      }
+    )
+
+  }
+
   title = 'git-firebase-app';
 }

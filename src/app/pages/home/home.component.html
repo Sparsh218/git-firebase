@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div class="container">
+    <form
+      class="form-inline mt-4 d-flex justify-content-center"
+      (ngSubmit)="handleSearch()"
+    >
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input
+          [(ngModel)]="userName"
+          type="text"
+          id="userName"
+          class="form-control mx-sm-3"
+          name="userName"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Find User</button>
+    </form>
+  
+    <!-- to render error -->
+    <div *ngIf="error" class="alert alert-danger m-5" role="alert">
+      {{ error }}
+    </div>
+  
+    <div class="row mt-3">
+      <div class="col col-md-4">
+        <app-usercard *ngIf="user" [user]="user"></app-usercard>
+      </div>
+      <div class="col col-md-8">
+        <app-repolist *ngIf="user" [repoUrl]="user.repos_url"></app-repolist>
+      </div>
+    </div>
+  </div>
+  
