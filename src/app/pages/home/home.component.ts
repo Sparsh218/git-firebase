@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
       },
       (error) => {
         this.user = null;
-        this.error = error;
+        this.error = "User not found";
         this.ref.detectChanges();
       }
     )
